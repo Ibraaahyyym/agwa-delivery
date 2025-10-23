@@ -65,14 +65,43 @@ This repo aims to house the unified full-stack codebase for the MVP and later pr
 ---
 
 ## Architecture & Folder Structure
-picka-platform/
-├── client/ # React / Next.js frontend (web)
-├── server/ # Node.js / Express API + services
-├── mobile/ # (optional) React Native / Flutter app
-├── infra/ # Infrastructure as Code (scripts, Dockerfiles)
-├── docs/ # Architecture docs, API specs, designs
-├── .github/ # CI workflows, issue/PR templates
-└── README.md
+## 🏗️ Project Structure — `picka-platform`
+
+The **Picka Platform** is organized for scalability, clarity, and ease of collaboration.  
+Below is an overview of the folder structure and its purpose.
+
+
+### 📂 Directory Breakdown
+
+- **`client/`** — Contains the web frontend built with React or Next.js.  
+  Handles customer and business user interfaces.
+
+- **`server/`** — Hosts the backend logic using Node.js and Express.  
+  Includes APIs, database models, authentication, and service integrations.
+
+- **`mobile/`** *(optional)* — For building a cross-platform delivery app using React Native or Flutter.  
+  Ideal for delivery personnel and mobile-first users.
+
+- **`infra/`** — Stores infrastructure code for containerization, cloud deployment, and automation scripts.  
+  Includes Docker, Kubernetes, or Terraform files if applicable.
+
+- **`docs/`** — Houses technical documentation, diagrams, and design specs.  
+  Useful for onboarding contributors and planning features.
+
+- **`.github/`** — Contains GitHub workflow files (CI/CD pipelines), pull request templates, and issue guidelines.
+
+- **`README.md`** — Central documentation file with installation, configuration, and usage instructions.
+
+---
+
+### 🧭 Purpose
+
+This structure ensures the **Picka Platform** remains modular, scalable, and easy to maintain —  
+supporting continuous development of the web, mobile, and backend components.
+
+---
+
+Would you like me to include this as a section in your **main README** (e.g., under “📁 Project Structure”)? It’ll make the repository more polished.
 
 ---
 
