@@ -1,326 +1,295 @@
 <!DOCTYPE html>
+<html lang="en">
 <head>
-  <!--<meta http-equiv="CONTENT-TYPE" content="text/html; charset=UTF-8">-->
-  <!--<link rel="preconnect" href="https://fonts.googleapis.com">-->
-  <!--<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>-->
-  <!--<link href="https://fonts.googleapis.com/css2?family=Carrois+Gothic&family=Karla:ital,wght@0,200..800;1,200..800&family=Space+Mono&display=swap" rel="stylesheet">-->  
-  <!--<link rel="preconnect" href="https://fonts.googleapis.com">-->
-  <!--<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>-->
-  <!--<link href="https://fonts.googleapis.com/css2?family=Carrois+Gothic&family=Space+Mono&display=swap" rel="stylesheet">-->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TaskFlow</title>
 
-  <title>task flow</title>
-<style>
- body{
-  /*background-color: black;*/
- }
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
- #nav{
-  display:flex;
-  justify-content: space-between;
-  padding:5px 5px;
-  border-bottom: 1px solid #000000;
-  /*background-color: lightblue;*/
- }
+    body {
+      font-family: "Karla", sans-serif;
+      background-color: #ffffff;
+      color: #000000;
+      line-height: 1.6;
+    }
 
- #nav img{
-  width:40px;
-  height: 40px;
-  /*border: 1px solid red;*/
- }
+    /* NAVBAR */
+    #nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 16px;
+      border-bottom: 1px solid #ddd;
+      background-color: #fff;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
 
- #nav button{
-  background-color: #000000 ;
-  /*background-color: white;*/
-  color: #FFFFFF ;
-  font-weight: normal;
-  padding: 7px 10px;
-  border-radius: 10px;
-  /*border-color: red;*/
- }
- 
- #nav-left{
-  display: flex;
-  gap: 0px;
-  padding-left: 10px;
-  justify-content: center;
-  align-items: center;
-  justify-content: flex-start; 
-  background-color: white;
-  /*background-color: green;*/
-  width: 50%;
-  /*height: 400px;*/
- }
+    #nav-left, #nav-right {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
 
+    #nav-left img {
+      width: 36px;
+      height: 36px;
+    }
 
-  #nav-left h3{
-    /*font-weight: lighter;*/
-    color:#000000 ;
-  }
+    #nav-left h3 {
+      font-size: 1.2rem;
+      color: #000;
+    }
 
-  #nav-right{
-  display: flex;
-  gap: 10px;
-  padding-right: 10px;
-  justify-content: center;
-  align-items: center;
-  justify-content: flex-end;
-  background-color: #FFFFFF ;
-  /*background-color: yellow;*/
-  width: 50%;
-  
- }
+    #nav-right img {
+      width: 30px;
+      height: 30px;
+      cursor: pointer;
+    }
 
- #nav-right img{
-  width: 40px;
-  height: 20px;
- }
+    #nav-right a {
+      text-decoration: none;
+      color: #fff;
+      background-color: #000;
+      padding: 8px 14px;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
 
- #nav-right a{
-  font-weight: bolder;
-  border: 0px solid #000000 ;
-  padding: 10px 15px;
-  color: #FFFFFF ;
-  background-color: #000000;
-  border-radius: 9px;
- }
+    /* HERO SECTION */
+    #about {
+      text-align: center;
+      padding: 40px 20px;
+    }
 
- h2{
-  color: #000000;
-  display: inline;
-  /*border: 1px solid red;*/
- }
+    #about h1 {
+      font-size: 1.8rem;
+      margin-bottom: 12px;
+    }
 
- #about{
-  /*background-color: beige;*/
-  display: flex;
-  flex-direction: column;
-  text-align: center;
-  letter-spacing: 0.3px;
- }
+    #about p {
+      font-size: 1rem;
+      margin-bottom: 20px;
+    }
 
- #button-get-started{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-  color: white;
-  background-color: #000000 ;
-  /*border: 1px solid ;*/
-  /*color: maroon;*/
-  font-size: 0.9rem;
-  margin-top: 10px;
-  margin-bottom: 10px;
-  margin-left: 20px;
-  margin-right:20px;
-  padding: 10px 20px;
-  border-radius: 9px;
-  font-weight: normal;
- }
- 
- #button-get-started a{
-  text-decoration: none;
-  color: inherit;
-  cursor: pointer;
- }
- 
- #learn-more{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #Ffffff;
-  color: #000000;
-  border: 1px solid #000000;
-  font-size: 0.9rem;
-  font-weight: normal /*light*/;
-  padding: 10px 20px;
-  border-radius: 9px;
-  margin-left: 20px;
-  margin-right:20px;
-  margin-bottom: 70px;
- }
+    .btn {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+      border-radius: 8px;
+      font-size: 0.95rem;
+      padding: 10px 18px;
+      margin: 5px;
+      cursor: pointer;
+      transition: all 0.2s ease-in-out;
+    }
 
- #about p{
-  font-size: 1.2rem;  
- }
+    .btn-primary {
+      background-color: #000;
+      color: #fff;
+    }
 
- #about button{
-  
-  /*border: solid white;*/
- }
+    .btn-outline {
+      background-color: transparent;
+      border: 1px solid #000;
+      color: #000;
+    }
 
-#about h1{
-  color: #000000;
-  font-size: 32px;
-  background-color:#FFFFFF ;
-  /*display: inline;*/
-  /*border: 1px solid red;*/
- }
-  
- .container2{
- background-color: whitesmoke;
- text-align: center;
- padding-top: 40px;
- padding-bottom: 10px;
- }
+    .btn:hover {
+      opacity: 0.85;
+    }
 
- .container2 p{
-   display: grid;
-   /*width: 200px;*/
-   /*height: 1000px;*/
-   font-size: 1.2rem;
-   padding:0 20px;
- }
+    /* FEATURES SECTION */
+    .container2 {
+      background-color: #f9f9f9;
+      padding: 50px 20px;
+      text-align: center;
+    }
 
- .feature{
-  /*flex-grow: 1;*/
-  background-color: #FFFFFF ;
-  margin: 20px 20px;
-  /*height: 150px;*/
-  width: 300px;
-  padding-bottom: 50px;
-  border-radius: 10px;
- }
+    .container2 h1 {
+      font-size: 1.6rem;
+      margin-bottom: 10px;
+    }
 
- .feature-container{
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-  }
+    .container2 p {
+      font-size: 1rem;
+      margin-bottom: 30px;
+    }
 
- .container2 h1{
-   /*padding-top:40px;*/
- }
+    .feature-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 16px;
+    }
 
- footer{
-  text-align: center;
-  padding-top: 50px;
-  padding-bottom: 50px;
- }
+    .feature {
+      background-color: #fff;
+      border-radius: 10px;
+      padding: 20px;
+      width: 90%;
+      max-width: 320px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
 
- footer p{
-  font-size: 1.2rem;  
- }
+    .feature img {
+      width: 40px;
+      height: 40px;
+      margin-bottom: 10px;
+    }
 
-  #button-get-started-footer{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-  color: white;
-  background-color: #000000;
-  /*border: 1px solid ;*/
-  /*color: maroon;*/
-  font-size: 0.9rem;
-  margin-top: 10px;
-  margin-bottom: 10px;
-  margin-left: 20px;
-  margin-right:20px;
-  padding: 10px 20px;
-  border-radius: 9px;
-  font-weight: light;
- }
+    .feature h3 {
+      font-size: 1.1rem;
+      margin-bottom: 8px;
+    }
 
- #button-get-started-footer a{
-  text-decoration: none;
-  color: inherit;
-  cursor: pointer;
- }
+    .feature p {
+      font-size: 0.95rem;
+      color: #333;
+    }
 
-  .inner p{
-   font-size: 0.9rem;
-  }
+    /* FOOTER */
+    footer {
+      text-align: center;
+      padding: 50px 20px;
+      background-color: #fff;
+    }
 
-</style>
+    footer h2 {
+      font-size: 1.4rem;
+      margin-bottom: 10px;
+    }
+
+    footer p {
+      font-size: 1rem;
+      margin-bottom: 20px;
+    }
+
+    /* DARK MODE */
+    .dark-mode {
+      background-color: #000;
+      color: #fff;
+    }
+
+    .dark-mode .feature {
+      background-color: #111;
+      color: #fff;
+    }
+
+    .dark-mode #nav {
+      background-color: #111;
+      border-color: #333;
+    }
+
+    .dark-mode #nav-right a {
+      background-color: #fff;
+      color: #000;
+    }
+
+    .dark-mode .btn-primary {
+      background-color: #fff;
+      color: #000;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 600px) {
+      #about h1 {
+        font-size: 1.6rem;
+      }
+
+      .container2 h1 {
+        font-size: 1.4rem;
+      }
+
+      footer h2 {
+        font-size: 1.2rem;
+      }
+    }
+  </style>
 </head>
+
 <body>
-<div class="container">
   <div id="nav">
     <div id="nav-left">
-      <a href=""><img src="./black_checkbox_1.jpg" /></a>
+      <img src="./black_checkbox_1.jpg" alt="logo" />
       <h3>TaskFlow</h3>
-      <a href="#"></a>
     </div>
 
     <div id="nav-right">
-      <img id="dark-mode" src="./moon-dark-theme.svg" />
-      <a>Login</a>
-    </div>
-  </div>
-</div>
-<div id="about">
-  <h1>Organize Your Work Get Things Done</h1>
-  <p>TaskFlow helps you manage projects, track progress, and collaborate with your team. Simple, powerful, and built for modern workflows.</p>     
-</div>
-<div id="button-get-started">
-  <a href="https://www.google.com" id="">Get Started</a>
-  <img src="./forward_arrow_white.jpg" width="20px" height="20px" padding-top="200px";/>   
-</div>
-
-<div id="learn-more">
-  <a>Learn More</a>
-</div>
-
-<div class="container2">
-  <h1>Everything you need to stay organized</h1>
-  <p>Powerful features designed to help you and your team work more efficiently.</p>
- 
-<div class="feature-container">
-  <div class="feature">
-    <div class="inner">
-      <img src="./black_checkbox_1.jpg" style="margin-top:40px;" width="40px" heught="40px" background-color="yellow" />
-      <h3>Task Management</h3>
-      <p>Create, organize, and track your tasks with an intuitive drag-and-drop interface.</p>
+      <img id="dark-mode-toggle" src="./moon-dark-theme.svg" alt="toggle dark mode" />
+      <a href="#">Login</a>
     </div>
   </div>
 
+  <section id="about">
+    <h1>Organize Your Work, Get Things Done</h1>
+    <p>TaskFlow helps you manage projects, track progress, and collaborate with your team. Simple, powerful, and built for modern workflows.</p>
 
-  <div class="feature">
-    <div class="inner">
-      <img src="./black_checkbox_1.jpg" style="margin-top: 40px;" width="40px" heught="40px" background-color="yellow" />
-      <h3>Task Management</h3>
-      <p>Create, organize, and track your tasks with an intuitive drag-and-drop interface.</p>
+    <a href="https://www.google.com" class="btn btn-primary">
+      Get Started
+      <img src="./forward_arrow_white.jpg" alt="arrow" width="18" height="18" />
+    </a>
+
+    <a href="#" class="btn btn-outline">Learn More</a>
+  </section>
+
+  <section class="container2">
+    <h1>Everything you need to stay organized</h1>
+    <p>Powerful features designed to help you and your team work more efficiently.</p>
+
+    <div class="feature-container">
+      <div class="feature">
+        <img src="./black_checkbox_1.jpg" alt="task management" />
+        <h3>Task Management</h3>
+        <p>Create, organize, and track your tasks with an intuitive drag-and-drop interface.</p>
+      </div>
+
+      <div class="feature">
+        <img src="./black_checkbox_1.jpg" alt="collaboration" />
+        <h3>Team Collaboration</h3>
+        <p>Work together in real-time, share updates, and stay in sync effortlessly.</p>
+      </div>
+
+      <div class="feature">
+        <img src="./black_checkbox_1.jpg" alt="analytics" />
+        <h3>Analytics Dashboard</h3>
+        <p>Gain insights into your workflow with visual reports and progress tracking.</p>
+      </div>
+
+      <div class="feature">
+        <img src="./black_checkbox_1.jpg" alt="notifications" />
+        <h3>Smart Notifications</h3>
+        <p>Stay updated with reminders and alerts so you never miss a deadline.</p>
+      </div>
     </div>
-  </div>
-  <div class="feature">
-    <div class="inner">
-      <img src="./black_checkbox_1.jpg" style="margin-top: 40px;" width="40px" heught="40px" background-color="yellow" />
-      <h3>Task Management</h3>
-      <p>Create, organize, and track your tasks with an intuitive drag-and-drop interface.</p>
-    </div>
-  </div>
-  <div class="feature">
-    <div class="inner">
-      <img src="./black_checkbox_1.jpg" style="margin-top: 40px;" width="40px" heught="40px" background-color="yellow" />
-      <h3>Task Management</h3>
-      <p>Create, organize, and track your tasks with an intuitive drag-and-drop interface.</p>
-    </div>
-  </div>
-</div>
-</div> <!-- feature container closing div -->
-<footer>
-  <h2>Ready to boost your productivity?</h2>
-  <p>Join thousands of teams already using TaskFlow to get things done.</p>
-  <div id="button-get-started-footer">
-    <a href="https://www.google.com" id="">Get Started</a>
-    <img src="./forward_arrow_white.jpg" width="20px" height="20px" padding-top="200px";/>   
-  </div>
-</footer>
-<script>
-document.getElementById("dark-mode").addEventListener("click",()=>{
- alert("clicked!")
- document.querySelector("body").style.color = "white"; 
- document.querySelector("body").style.backgroundColor = "black";
- document.querySelectorAll(".feature").forEach(feature =>{
-  feature.style.color = "white";
-   feature.style.backgroundColor = "black";
- })
+  </section>
 
- //document.querySelectorAll(".feature").style.backgroundColor = "black";
- //document.getElementById("dark-mode").innerHTML = `<img src="./black_checkbox_1.jpg">`;
+  <footer>
+    <h2>Ready to boost your productivity?</h2>
+    <p>Join thousands of teams already using TaskFlow to get things done.</p>
 
-})
+    <a href="https://www.google.com" class="btn btn-primary">
+      Get Started
+      <img src="./forward_arrow_white.jpg" alt="arrow" width="18" height="18" />
+    </a>
+  </footer>
 
-
-</script>
+  <script>
+    const toggle = document.getElementById("dark-mode-toggle");
+    toggle.addEventListener("click", () => {
+      document.body.classList.toggle("dark-mode");
+    });
+  </script>
 </body>
 </html>
